@@ -23,12 +23,13 @@ const hideToggle = () => {
 };
 
 const arabicToRoman = (input) => {
-  
-  for(let i=0; i < romanArray.length; i++) {
+
+  for (let i = 0; i < romanArray.length; i++) {
     let romanLetter = romanArray[i][0];
     let romanNumber = romanArray[i][1];
-
-    if(input >= romanNumber) {
+    if (input === 0) {
+      return "";
+    } else if (input >= romanNumber) {
       return romanLetter + arabicToRoman(input - romanNumber);
     }
   }
@@ -59,22 +60,7 @@ const checkUserInput = () => {
 convertBtn.addEventListener('click', checkUserInput);
 
 userInput.addEventListener('keydown', (e) => {
-  if(e.key === "Enter") {
+  if (e.key === "Enter") {
     checkUserInput();
   };
 });
-
-
-// convertBtn.addEventListener("click", () => {
-//   const number = Number(userInput.value);
-
-//   if(!number) {
-    
-//   } else if (number <= 0) {
-//     output.textContent = "Please enter a number greater than or equal to 1";
-//     hideToggle();
-//   } else if (number >= 4000){
-//     output.textContent = "Please enter a number less than or equal to 3999";
-//     hideToggle();
-//   };
-// });
