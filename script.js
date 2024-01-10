@@ -24,7 +24,7 @@ const hideToggle = () => {
 
 const arabicToRoman = (input) => {
 
-  for (let i = 0; i < romanArray.length; i++) {
+  for (const i in romanArray) {
     let romanLetter = romanArray[i][0];
     let romanNumber = romanArray[i][1];
     if (input === 0) {
