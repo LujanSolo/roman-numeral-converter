@@ -6,8 +6,8 @@ const hideToggle = () => {
   output.classList.toggle("hidden");
 };
 
-const arabicToRoman = (input) => {
-
+const arabicToRoman = (userNumber) => {
+  let ii = "";
   const romanArray = [
     ["M", 1000],
     ["CM", 900],
@@ -24,6 +24,24 @@ const arabicToRoman = (input) => {
     ["I", 1],
   ];
 
+  for(let i=0; i < romanArray.length; i++) {
+    let romanLetter = romanArray[i][0];
+    let romanNumber = romanArray[i][1];
+
+    
+  }
+
+  // return userNumber;
+
+  // for(const i in romanArray){
+  //   const romanLetters = i[0];
+  //   const romanNumbers = i[1];
+
+  //   if(userNumber >= romanNumbers){
+  //     return arabicToRoman(userNumber - romanNumbers)
+  //   }
+
+  // }
 };
 
 const checkUserInput = () => {
@@ -39,9 +57,17 @@ const checkUserInput = () => {
     return;
   };
 
-
+  output.textContent = arabicToRoman(inputNumberValue);
   userInput.value = "";
 };
+
+convertBtn.addEventListener('click', checkUserInput);
+
+userInput.addEventListener('keydown', (e) => {
+  if(e.key === "Enter") {
+    checkUserInput();
+  };
+});
 
 
 // convertBtn.addEventListener("click", () => {
@@ -56,36 +82,4 @@ const checkUserInput = () => {
 //     output.textContent = "Please enter a number less than or equal to 3999";
 //     hideToggle();
 //   };
-// });
-
-// const numberInput = document.getElementById("number-input");
-// const convertBtn = document.getElementById("convert-btn");
-// const result = document.getElementById("result");
-
-// const decimalToBinary = (input) => {
-//   if (input === 0 || input === 1) {
-//     return String(input);
-//   } else {
-//     return decimalToBinary(Math.floor(input / 2)) + (input % 2);
-//   }
-// };
-
-
-
-// const checkUserInput = () => {
-//   if (!numberInput.value || isNaN(parseInt(numberInput.value))) {
-//     alert("Please provide a decimal number");
-//     return;
-//   }
-
-//   result.textContent = decimalToBinary(parseInt(numberInput.value));
-//   numberInput.value = "";
-// };
-
-// convertBtn.addEventListener("click", checkUserInput);
-
-// numberInput.addEventListener("keydown", (e) => {
-//   if (e.key === "Enter") {
-//     checkUserInput();
-//   }
 // });
